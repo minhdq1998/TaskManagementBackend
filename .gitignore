@@ -1,1 +1,5 @@
+.vscode
 .sandbox
+**/__pycache__/**
+.metals
+.env
