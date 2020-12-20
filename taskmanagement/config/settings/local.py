@@ -1,6 +1,7 @@
 
-from .base import *
 import configparser
+
+from .base import *
 
 # Get the configuration files
 config = configparser.ConfigParser(interpolation=None)
@@ -12,7 +13,11 @@ SECRET_KEY = config.get('base','secret')
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config.get('postgres','db'),
+        'USER': config.get('postgres','user'),
+        'PASSWORD': config.get('postgres','password'),
+        'HOST': config.get('postgres','host'),
+        'PORT': config.get('postgres','port')
     }
 }
