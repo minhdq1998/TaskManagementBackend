@@ -21,3 +21,6 @@ DATABASES = {
         'PORT': config.get('postgres','port')
     }
 }
+
+INSTALLED_APPS += [
+]
